@@ -2,5 +2,9 @@
   "private": true,
   "devDependencies": {
     "lamos-to-json": "^3.0.2"
+  },
+  "scripts": {
+    "build": "lamos-to-json < list.lamos > list.json",
+    "test": "npm run build && ./test"
   }
 }

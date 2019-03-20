@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+var assert = require('assert')
+var https = require('https')
+var list = require('./list.json')
+
+var pendingIDs = ['Parity-6.0.0']
+
+https.get('https://spdx.org/licenses/licenses.json', function (response) {
+  var chunks = []
+  response
+    .on('data', function (chunk) {
+      chunks.push(chunk)
+    })
+    .once('error', function (error) {
+      console.error(error)
+      process.exit(1)
+    })
+    .once('end', function () {
+      var body = Buffer.concat(chunks)
+      var parsed = JSON.parse(body)
+      checkList(list, parsed)
+    })
+})
+
+function checkList (list, spdx) {
+  Object.keys(list).forEach(function (key) {
+    list[key].forEach(function (id) {
+      assert(
+        pendingIDs.includes(id) ||
+        spdx.licenses.some(function (license) {
+          return license.licenseId === id
+        }),
+        id
+      )
+    })
+  })
+}

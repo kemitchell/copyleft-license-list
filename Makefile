@@ -7,3 +7,8 @@ list.json: list.lamos | $(LAMOSTOJSON)
 
 $(LAMOSTOJSON):
 	npm install
+
+.PHONY: test
+
+test: list.json
+	./test

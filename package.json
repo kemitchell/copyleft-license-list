@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "devDependencies": {
+    "lamos-to-json": "^3.0.2"
+  }
+}

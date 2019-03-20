@@ -5,6 +5,7 @@ consistent:
   - GPL-3.0-only
   - GPL-3.0-or-later
   - Sleepycat
+
 selective:
   - CDDL-1.0
   - CDDL-1.1
@@ -21,6 +22,7 @@ selective:
   - MPL-1.1
   - MPL-2.0
   - SPL-1.0
+
 network:
   - AGPL-1.0-only
   - AGPL-1.0-or-later
@@ -32,6 +34,7 @@ network:
   - OSL-2.0
   - OSL-2.1
   - OSL-3.0
+
 reciprocal:
   - Parity-6.0.0
   - QPL-1.0
